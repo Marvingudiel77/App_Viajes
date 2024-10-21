@@ -49,7 +49,7 @@ class LoginEmailActivity : AppCompatActivity() {
     private var password = ""
 
     private fun validarInformacion() {
-        // Corregir la forma de obtener el texto de los campos de entrada
+
         email = binding.etEmail.text.toString().trim()
         password = binding.etPassword.text.toString().trim()
 
