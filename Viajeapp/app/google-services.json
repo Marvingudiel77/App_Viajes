@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "145661907342",
+    "project_id": "sesion-kotlin",
+    "storage_bucket": "sesion-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145661907342:android:563342ddf38ddef44794df",
+        "android_client_info": {
+          "package_name": "com.MarvinGudiel.viajeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxoOci8tYfvO1tH5q_AGAt1BnsJmXjzr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
