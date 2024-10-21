@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import androidx.appcompat.app.AlertDialog
 
 class RegistroEmailActivity : AppCompatActivity() {
-
+//agregando un comentario en el Email Activity
     private lateinit var binding: ActivityRegistroEmailBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: AlertDialog
