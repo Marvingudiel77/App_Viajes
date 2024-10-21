@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun irOpcionesLogin() {
         startActivity(Intent(application, OpcionesLoginActivity::class.java))
+        finishAffinity()
     }
 
 

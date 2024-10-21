@@ -10,7 +10,6 @@ import com.MarvinGudiel.viajeapp.R
 
 class FragmentosPublicaciones : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -18,5 +17,6 @@ class FragmentosPublicaciones : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragmentos_publicaciones, container, false)
     }
+
 
 }
