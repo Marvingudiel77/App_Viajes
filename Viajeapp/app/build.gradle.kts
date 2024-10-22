@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     implementation(libs.circleImage)
+    implementation(libs.firebaseStorage)
     implementation(libs.glide)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
