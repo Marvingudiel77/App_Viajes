@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditarInformacion">
-    
+
     <RelativeLayout
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
@@ -37,7 +37,6 @@
             android:layout_alignParentBottom="true"
             android:background="#cccccc"
             android:layout_height="1dp"/>
-
     </RelativeLayout>
 
     <ScrollView
@@ -48,6 +47,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RelativeLayout
                 android:id="@+id/perfilRL"
                 android:layout_centerHorizontal="true"
@@ -67,9 +67,9 @@
                     android:layout_alignParentEnd="true"
                     android:layout_width="50dp"
                     android:layout_height="50dp"/>
-
             </RelativeLayout>
 
+            <!-- Campo de nombres -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TILNombres"
                 android:layout_marginTop="10dp"
@@ -83,15 +83,37 @@
 
                 <EditText
                     android:id="@+id/txt_nombres"
-                    android:text="@string/txt_nombres"
+                    android:hint="@string/txt_nombres"
                     android:inputType="textPersonName|textCapWords"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
+            <!-- Nuevo campo de descripción personal -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TILDescripcion"
+                android:layout_marginTop="10dp"
                 android:layout_below="@id/TILNombres"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txt_descripcion"
+                    android:hint="@string/txt_descripcion"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:maxLines="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón de actualizar -->
+            <com.google.android.material.button.MaterialButton
+                android:layout_below="@id/TILDescripcion"
                 android:text="@string/btn_Actualizar"
                 android:id="@+id/btn_Actualizar"
                 android:layout_marginTop="10dp"
@@ -99,9 +121,6 @@
                 app:cornerRadius="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
         </RelativeLayout>
-
-
     </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

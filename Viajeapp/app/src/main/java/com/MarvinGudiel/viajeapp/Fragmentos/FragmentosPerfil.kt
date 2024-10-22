@@ -3,6 +3,7 @@ package com.MarvinGudiel.viajeapp.Fragmentos
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,11 +21,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-
 class FragmentosPerfil : Fragment() {
 
-    private lateinit var binding : FragmentFragmentosPerfilBinding
-    private lateinit var mContext : Context
+    private lateinit var binding: FragmentFragmentosPerfilBinding
+    private lateinit var mContext: Context
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onAttach(context: Context) {
@@ -32,11 +32,8 @@ class FragmentosPerfil : Fragment() {
         super.onAttach(context)
     }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        binding = FragmentFragmentosPerfilBinding.inflate(layoutInflater, container, false )
-        // Inflate the layout for this fragment
+        binding = FragmentFragmentosPerfilBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -51,8 +48,9 @@ class FragmentosPerfil : Fragment() {
             startActivity(Intent(mContext, EditarInformacion::class.java))
         }
 
-        binding.btnCerrarSesion.setOnClickListener { firebaseAuth.signOut()
-        startActivity(Intent(mContext, OpcionesLoginActivity::class.java))
+        binding.btnCerrarSesion.setOnClickListener {
+            firebaseAuth.signOut()
+            startActivity(Intent(mContext, OpcionesLoginActivity::class.java))
             activity?.finishAffinity()
         }
     }
@@ -60,15 +58,16 @@ class FragmentosPerfil : Fragment() {
     private fun cargarInformacion() {
         val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
         ref.child("${firebaseAuth.uid}")
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val nombres = "${snapshot.child("nombres").value}"
                     val email = "${snapshot.child("email").value}"
                     val proveedor = "${snapshot.child("proveedor").value}"
                     var tiempoR = "${snapshot.child("tiempoR").value}"
                     val imagen = "${snapshot.child("imagen").value}"
+                    val descripcionIntereses = "${snapshot.child("interesesViaje").value ?: "No hay intereses de viaje establecidos."}"
 
-                    if(tiempoR == "null"){
+                    if (tiempoR == "null") {
                         tiempoR = "0"
                     }
 
@@ -78,19 +77,19 @@ class FragmentosPerfil : Fragment() {
                     binding.tvEmail.text = email
                     binding.tvProveedor.text = proveedor
                     binding.tvTRegistro.text = fecha
+                    binding.tvDescripcionIntereses.text = descripcionIntereses
 
                     try {
                         Glide.with(mContext).load(imagen).placeholder(R.drawable.img_perfil).into(binding.ivPerfil)
-                    }catch (e:Exception){
-                        Toast.makeText(mContext, "${e.message}",
-                            Toast.LENGTH_SHORT).show()
+                    } catch (e: Exception) {
+                        Toast.makeText(mContext, "${e.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    Log.e("FragmentosPerfil", "Error en Firebase: ${error.message}")
                 }
-
             })
     }
 }
+
