@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.MarvinGudiel.viajeapp.Constantes
+import com.MarvinGudiel.viajeapp.EditarInformacion
 import com.MarvinGudiel.viajeapp.OpcionesLoginActivity
 import com.MarvinGudiel.viajeapp.R
 import com.MarvinGudiel.viajeapp.databinding.FragmentFragmentosPerfilBinding
@@ -45,6 +46,10 @@ class FragmentosPerfil : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         cargarInformacion()
+
+        binding.btnActualizarInfo.setOnClickListener {
+            startActivity(Intent(mContext, EditarInformacion::class.java))
+        }
 
         binding.btnCerrarSesion.setOnClickListener { firebaseAuth.signOut()
         startActivity(Intent(mContext, OpcionesLoginActivity::class.java))

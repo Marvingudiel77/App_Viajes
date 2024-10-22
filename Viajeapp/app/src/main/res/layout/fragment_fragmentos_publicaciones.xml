@@ -1,17 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragmentos.FragmentosPublicaciones">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/etNombreServicio"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="PUBLICACIONES"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="25sp" />
+        android:layout_height="wrap_content"
+        android:hint="Nombre del servicio" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/etCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Categoría (viajes o alimentación)" />
+
+    <Switch
+        android:id="@+id/switchEsGratuito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Es gratuito?" />
+
+    <EditText
+        android:id="@+id/etCosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Costo del servicio"
+        android:inputType="numberDecimal"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción" />
+
+    <Button
+        android:id="@+id/btnSubirImagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subir imagen" />
+
+    <Button
+        android:id="@+id/btnAgregarServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar Servicio" />
+</LinearLayout>
+

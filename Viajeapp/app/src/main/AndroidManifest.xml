@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EditarInformacion"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarServicioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PublicacionesActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistroEmailActivity"
             android:exported="false" />
         <activity

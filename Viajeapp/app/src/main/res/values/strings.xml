@@ -22,7 +22,7 @@
     <string name="btn_Registrar">Registrar</string>
 
     <string name="btn_CerrarSesion">Cerrar Sesion</string>
-
+    <string name="btn_ActualizarInfo">Actualizar</string>
 
     <string name="txt_nombres">Nombres: </string>
     <string name="tv_nombres"> -- </string>
@@ -32,6 +32,10 @@
     <string name="tv_proveedor"> -- </string>
     <string name="txt_t_registro">Miembro desde: </string>
     <string name="tv_t_registro"> -- </string>
+
+    <string name="txt_titulo_edit">Editar Información: </string>
+
+    <string name="btn_Actualizar">Actualizar Informacion: </string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
