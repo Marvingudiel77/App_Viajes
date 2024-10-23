@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_rating"
+    android:alpha="0.5"
     android:padding="16dp">
+
 
     <!-- RatingBar para calificar la publicación -->
 
@@ -21,6 +24,7 @@
         android:stepSize="1.0"
         android:rating="0"
         android:isIndicator="false"
+
         android:progressDrawable="@drawable/ratingbar_custom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
