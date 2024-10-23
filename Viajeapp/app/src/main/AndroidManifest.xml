@@ -22,6 +22,7 @@
         <activity
             android:name=".EditarInformacion"
             android:exported="false" />
+            android:name=".PublicacionesActivity"
         <activity
             android:name=".RegistroEmailActivity"
             android:exported="false" />
