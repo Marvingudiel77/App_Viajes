@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Estado no seleccionado (estrellas vacías) -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#D3D3D3" /> <!-- Color gris claro para estrellas no seleccionadas -->
+        </shape>
+    </item>
+
+    <!-- Estado parcialmente seleccionado -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#FFD700" /> <!-- Color amarillo para estrellas parcialmente seleccionadas -->
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Estado seleccionado (estrellas llenas) -->
+    <item android:id="@android/id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#FFD700" /> <!-- Color amarillo para estrellas seleccionadas -->
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
