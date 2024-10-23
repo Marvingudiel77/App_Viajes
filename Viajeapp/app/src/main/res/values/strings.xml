@@ -9,6 +9,9 @@
     <string name="opcionEmail">Continuar con Email</string>
     <string name="opcionGoogle">Continuar con Google</string>
 
+    <string name="default_web_client_id">145661907342-hnje61pjikcehmor44lsmittv4du5ceq.apps.googleusercontent.com</string>
+
+
     <string name="txt_login">Login</string>
     <string name="et_Email">Correo Electronico</string>
     <string name="et_Password">Contraseña</string>

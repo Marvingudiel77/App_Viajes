@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
+    implementation(libs.loginGoogle)
     implementation(libs.circleImage)
     implementation(libs.firebaseStorage)
     implementation(libs.glide)
