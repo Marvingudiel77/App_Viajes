@@ -56,4 +56,7 @@ dependencies {
     implementation(libs.glide)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.4.0")
+    implementation ("com.google.firebase:firebase-auth-ktx:22.0.0")
+
 }
