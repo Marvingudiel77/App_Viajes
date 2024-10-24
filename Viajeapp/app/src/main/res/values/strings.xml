@@ -42,6 +42,10 @@
 
     <string name="txt_descripcion">Intereses de viajes</string>
 
+    <string name="item_uid">uid del usuario</string>
+    <string name="item_nombre">Nombre del usuario</string>
+    <string name="item_email">Email del usuario</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
