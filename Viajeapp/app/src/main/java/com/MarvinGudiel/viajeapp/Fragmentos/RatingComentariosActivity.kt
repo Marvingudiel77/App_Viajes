@@ -1,14 +1,24 @@
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.MarvinGudiel.viajeapp.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_rating_comentarios.* // Si usas Fragment, cambia esto por ViewBinding
 
 class RatingComentariosActivity : AppCompatActivity() {
 
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var recyclerViewComentarios: RecyclerView
+    private lateinit var btnEnviar: Button
+    private lateinit var ratingBar: RatingBar
+    private lateinit var etComentario: EditText
     private lateinit var adapter: ComentariosAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
