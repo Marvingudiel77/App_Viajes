@@ -1,12 +1,15 @@
 package com.MarvinGudiel.viajeapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.MarvinGudiel.viajeapp.Chat.ChatActivity
 import com.bumptech.glide.Glide
 
 class AdaptadorUsuario (
@@ -37,6 +40,13 @@ class AdaptadorUsuario (
         holder.email.text = usuario.email
         holder.nombres.text = usuario.nombres
         Glide.with(context).load(usuario.imagen).placeholder(R.drawable.ic_imagen_perfil).into(holder.imagen)
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("uid", holder.uid.text)
+            Toast.makeText(context, "Has seleccionado al usuario: ${holder.nombres.text}", Toast.LENGTH_SHORT).show()
+            context.startActivity((intent))
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
