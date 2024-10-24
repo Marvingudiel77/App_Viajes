@@ -2,6 +2,8 @@ package com.MarvinGudiel.viajeapp.Fragmentos
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +41,19 @@ class FragmentUsuarios : Fragment() {
         binding.RVUsuarios.layoutManager= LinearLayoutManager(mContext)
         usuarioLista =ArrayList()
 
+        binding.etBuscarUsuario.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(usuario: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                buscarUsuario(usuario.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+        })
+
         listarUsuarios()
 
         return binding.root
@@ -52,14 +67,41 @@ class FragmentUsuarios : Fragment() {
         reference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 (usuarioLista as ArrayList<Usuario>).clear()
-                for (sn in snapshot.children){
-                    val usuario: Usuario? = sn.getValue(Usuario::class.java)
+                if(binding.etBuscarUsuario.text.toString().isEmpty()){
+                    for (sn in snapshot.children){
+                        val usuario: Usuario? = sn.getValue(Usuario::class.java)
 
+                        if(!(usuario!!.uid).equals(firebaseUser)){
+                            (usuarioLista as ArrayList<Usuario>).add(usuario)
+                        }
+                    }
+                    usuarioAdaptador = AdaptadorUsuario(mContext, usuarioLista!!)
+                    binding.RVUsuarios.adapter = usuarioAdaptador
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+
+    }
+    private fun buscarUsuario(usuario: String){
+
+        val firebaseUser = FirebaseAuth.getInstance().currentUser!!.uid
+        val reference = FirebaseDatabase.getInstance().reference.child("Usuarios").orderByChild("nombres")
+            .startAt(usuario).endAt(usuario+ "\uf8ff")
+        reference.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                (usuarioLista as ArrayList<Usuario>).clear()
+                for(ss in snapshot.children){
+                    val usuario: Usuario ?= ss.getValue(Usuario::class.java)
                     if(!(usuario!!.uid).equals(firebaseUser)){
                         (usuarioLista as ArrayList<Usuario>).add(usuario)
+
                     }
                 }
-                usuarioAdaptador = AdaptadorUsuario(mContext, usuarioLista!!)
+                usuarioAdaptador = AdaptadorUsuario(context!!, usuarioLista!!)
                 binding.RVUsuarios.adapter = usuarioAdaptador
             }
 
