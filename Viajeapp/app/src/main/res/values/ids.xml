@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ivImagenItem" type="id" />
+    <item name="fragment_container" type="id" />
+    <item name="rvPublicacionesLugares" type="id" />
+    <item name="rvPublicacionesRestaurantes" type="id" />
+    <item name="rvPublicacionesHoteles" type="id" />
+</resources>
