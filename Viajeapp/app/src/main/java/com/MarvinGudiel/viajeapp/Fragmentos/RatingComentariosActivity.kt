@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.MarvinGudiel.viajeapp.R
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_rating_comentarios.* // Si usas Fragment, cambia esto por ViewBinding
 
 class RatingComentariosActivity : AppCompatActivity() {
 
