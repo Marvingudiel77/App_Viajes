@@ -45,7 +45,7 @@
             android:id="@+id/tvTituloPublicaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Publicaciones"
+            android:text="Turismo"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Destino: París, Francia"
+            android:text="Destino: Parque Ghibli Japon"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -103,8 +103,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Publicado por: Juan12 Bonilla"
-            android:textColor="@android:color/darker_gray"
+            android:text="Publicado por: keily Lopez"
+            android:textColor="@android:color/black"
             android:textSize="14sp" />
 
         <!-- RecyclerView para mostrar varias imágenes -->
@@ -226,9 +226,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
