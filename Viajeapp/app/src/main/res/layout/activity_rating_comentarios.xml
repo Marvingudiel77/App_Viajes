@@ -21,7 +21,7 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="80dp"
         android:isIndicator="false"
         android:numStars="5"
         android:progressDrawable="@drawable/ratingbar_custom"
@@ -36,7 +36,7 @@
         android:id="@+id/etComentario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="52dp"
         android:background="#80000000"
         android:hint="Escribe un comentario..."
         android:hintTextColor="#FFFFFF"
@@ -44,7 +44,7 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ratingBar"
         app:layout_constraintWidth_default="spread" />
@@ -73,5 +73,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnEnviar"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnRecomendaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFBB33"
+        android:elevation="8dp"
+        android:padding="12dp"
+        android:text="Ver Recomendaciones de viajes"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

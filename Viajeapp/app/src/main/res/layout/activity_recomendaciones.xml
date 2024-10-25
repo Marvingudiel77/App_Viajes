@@ -1,10 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".Fragmentos.RecomendacionesActivity">
+
+    <!-- Título para las recomendaciones de viaje con sombra y fuente personalizada -->
+    <TextView
+        android:id="@+id/tv_recomendaciones_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recomendaciones_title"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    android:textColor="#FFFFFF"
+    android:shadowColor="#000000"
+    android:shadowDx="2"
+    android:shadowDy="2"
+    android:shadowRadius="4"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="16dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ImageView para la imagen de fondo (sin modificar) -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tu_imagen_de_fondo"
+        android:alpha="0.95"
+        app:layout_constraintTop_toBottomOf="@id/tv_recomendaciones_title"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- RecyclerView para mostrar la lista de recomendaciones -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recomendaciones"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_recomendaciones_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_recomendacion" />
+
+    <!-- ProgressBar con color de acento -->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="#FFBB33"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
