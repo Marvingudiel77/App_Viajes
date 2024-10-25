@@ -9,25 +9,41 @@
     android:background="@drawable/background_gradient"
     tools:context=".Fragmentos.RecomendacionesActivity">
 
-    <!-- Título para las recomendaciones de viaje con sombra y fuente personalizada -->
-    <TextView
-        android:id="@+id/tv_recomendaciones_title"
+    <!-- Contenedor horizontal para el icono y el texto -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recomendaciones_title"
-    android:textSize="28sp"
-    android:textStyle="bold"
-    android:textColor="#FFFFFF"
-    android:shadowColor="#000000"
-    android:shadowDx="2"
-    android:shadowDy="2"
-    android:shadowRadius="4"
-    android:layout_marginTop="16dp"
-    android:layout_marginStart="16dp"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <!-- ImageView para la imagen de fondo (sin modificar) -->
+        <!-- ImageView para el icono de avión -->
+        <ImageView
+            android:id="@+id/icon_avion"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_airplanemode_active_24"
+            android:contentDescription="@string/icono_avion" />
+
+        <!-- TextView para el título -->
+        <TextView
+            android:id="@+id/tv_recomendaciones_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recomendaciones_title"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- ImageView para la imagen de fondo -->
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
@@ -36,7 +52,8 @@
         android:src="@drawable/tu_imagen_de_fondo"
         android:alpha="0.95"
         app:layout_constraintTop_toBottomOf="@id/tv_recomendaciones_title"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="NotSibling" />
 
     <!-- RecyclerView para mostrar la lista de recomendaciones -->
     <androidx.recyclerview.widget.RecyclerView
@@ -49,7 +66,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_recomendacion" />
+        tools:listitem="@layout/item_recomendacion"
+        tools:ignore="NotSibling" />
 
     <!-- ProgressBar con color de acento -->
     <ProgressBar
@@ -65,3 +83,4 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
