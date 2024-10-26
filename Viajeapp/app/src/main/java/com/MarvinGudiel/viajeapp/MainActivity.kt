@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.MarvinGudiel.viajeapp.Fragmentos.FragmentPublicaciones
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosChats
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosPerfil
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosPublicaciones
@@ -87,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     private fun verFragmentoPublicaciones(){
         binding.tvTitulo.text = "PUBLICACIONES"
 
-        val fragment = FragmentosPublicaciones()
+        val fragment = FragmentPublicaciones()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentoFL.id, fragment, "Fragment Publicaciones")
         fragmentTransaction.commit()

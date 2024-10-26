@@ -25,7 +25,7 @@ class FragmentPublicaciones : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_fragment_publicaciones, container, false)
+        val view = inflater.inflate(R.layout.fragment_fragmentos_publicaciones, container, false)
 
         // Configuración del RecyclerView
         val recyclerView: RecyclerView = view.findViewById(R.id.rvImagenes)

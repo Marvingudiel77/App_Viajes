@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="tipo_publicacion_array" />
+    <string-array name="tipo_publicacion_array">
+        <item>Lugares</item>
+        <item>Hoteles</item>
+        <item>Restaurantes</item>
+        <item>Aeropuertos</item>
+
+    </string-array>
 </resources>
