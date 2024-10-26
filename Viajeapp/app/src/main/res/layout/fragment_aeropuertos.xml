@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp">  <!-- Agregado padding general -->
 
+
     <!-- Imagen de fondo -->
 
     <!-- Submenú y Título Publicaciones con icono de avioncito -->
@@ -37,7 +38,7 @@
             android:id="@+id/ivAvioncito"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_avioncito"
+            android:src="@drawable/baseline_airplanemode_active_24"
             android:layout_marginEnd="8dp"/>
 
         <!-- Título Publicaciones -->
@@ -116,7 +117,7 @@
             android:layout_marginBottom="16dp"
             android:scrollbars="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:orientation="horizontal"
+            android:orientation="horizontal"
             tools:listitem="@layout/item_imagen" />
 
         <!-- Botón para subir imagen -->

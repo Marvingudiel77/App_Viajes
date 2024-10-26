@@ -1,5 +1,6 @@
 package com.MarvinGudiel.viajeapp.Fragmentos
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.MarvinGudiel.viajeapp.R
 
 class FragmentAeropuertos : Fragment() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -19,7 +21,7 @@ class FragmentAeropuertos : Fragment() {
         val view = inflater.inflate(R.layout.fragment_aeropuertos, container, false)
 
         // Configuración del RecyclerView para mostrar las publicaciones de aeropuertos
-        val recyclerView: RecyclerView = view.findViewById(R.id.rvPublicacionesAeropuertos)
+        val recyclerView: RecyclerView = view.findViewById(R.id.rvFragment_Aeropuertos)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = PublicacionAdapter(getAeropuertosPublicaciones())
 

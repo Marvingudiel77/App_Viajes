@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.MarvinGudiel.viajeapp.R
 
 class PublicacionesActivity : AppCompatActivity() {
@@ -35,7 +36,7 @@ class PublicacionesActivity : AppCompatActivity() {
     }
 
     // Función para reemplazar el fragmento
-    private fun replaceFragment(fragment: FragmentAeropuertos) {
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragment_container, fragment)  // Donde fragment_container es el contenedor

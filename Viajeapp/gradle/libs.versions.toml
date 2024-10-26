@@ -19,6 +19,7 @@ lifecycleViewmodelKtx = "2.6.1"
 fragmentKtx = "1.5.6"
 firebaseStorageV = "21.0.1"
 loginGoogleV = "21.2.0"
+firebaseFirestoreKtx = "25.1.1"
 
 
 [libraries]
@@ -39,6 +40,7 @@ loginGoogle = {group="com.google.android.gms", name="play-services-auth", versio
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 
 
 [plugins]

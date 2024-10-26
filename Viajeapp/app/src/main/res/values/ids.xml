@@ -5,4 +5,5 @@
     <item name="rvPublicacionesLugares" type="id" />
     <item name="rvPublicacionesRestaurantes" type="id" />
     <item name="rvPublicacionesHoteles" type="id" />
+    <item name="rvFragment_Aeropuertos" type="id" />
 </resources>
