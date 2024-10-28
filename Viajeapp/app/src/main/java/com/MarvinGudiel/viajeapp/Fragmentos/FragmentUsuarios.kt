@@ -9,9 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.MarvinGudiel.viajeapp.AdaptadorUsuario
-import com.MarvinGudiel.viajeapp.R
-import com.MarvinGudiel.viajeapp.Usuario
+import com.MarvinGudiel.viajeapp.Adaptadores.AdaptadorUsuario
+import com.MarvinGudiel.viajeapp.Modelos.Usuario
 import com.MarvinGudiel.viajeapp.databinding.FragmentUsuariosBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -95,7 +94,7 @@ class FragmentUsuarios : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 (usuarioLista as ArrayList<Usuario>).clear()
                 for(ss in snapshot.children){
-                    val usuario: Usuario ?= ss.getValue(Usuario::class.java)
+                    val usuario: Usuario?= ss.getValue(Usuario::class.java)
                     if(!(usuario!!.uid).equals(firebaseUser)){
                         (usuarioLista as ArrayList<Usuario>).add(usuario)
 

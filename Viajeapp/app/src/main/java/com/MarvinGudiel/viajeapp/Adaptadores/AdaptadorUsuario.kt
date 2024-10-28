@@ -1,4 +1,4 @@
-package com.MarvinGudiel.viajeapp
+package com.MarvinGudiel.viajeapp.Adaptadores
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.MarvinGudiel.viajeapp.Chat.ChatActivity
+import com.MarvinGudiel.viajeapp.Modelos.Usuario
+import com.MarvinGudiel.viajeapp.R
 import com.bumptech.glide.Glide
 
 class AdaptadorUsuario (

@@ -1,4 +1,4 @@
-package com.MarvinGudiel.viajeapp
+package com.MarvinGudiel.viajeapp.Modelos
 
 class Usuario {
     var uid : String =""
