@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="descripcionTextView" type="id" />
+    <item name="costoTextView" type="id" />
+    <item name="categoriaTextView" type="id" />
+    <item name="nombreServicioTextView" type="id" />
+</resources>

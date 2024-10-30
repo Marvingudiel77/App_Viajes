@@ -18,11 +18,9 @@
         <activity
             android:name=".EditarInformacion"
             android:exported="false" />
+
         <activity
-            android:name=".AgregarServicioActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PublicacionesActivity"
+            android:name=".Fragmentos.ListarPublicacionesActivity"
             android:exported="false" />
         <activity
             android:name=".RegistroEmailActivity"

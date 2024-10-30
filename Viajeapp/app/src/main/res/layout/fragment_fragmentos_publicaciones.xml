@@ -48,5 +48,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Agregar Servicio" />
+
+    <!-- Nuevo botón para listar publicaciones -->
+    <Button
+        android:id="@+id/btnListarPublicaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Publicaciones" />
 </LinearLayout>
 
