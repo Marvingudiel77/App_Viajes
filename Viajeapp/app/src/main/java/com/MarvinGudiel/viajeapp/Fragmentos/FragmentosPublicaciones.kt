@@ -32,6 +32,7 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
         val descripcionEditText: EditText = view.findViewById(R.id.etDescripcion)
         val subirImagenButton: Button = view.findViewById(R.id.btnSubirImagen)
         val agregarServicioButton: Button = view.findViewById(R.id.btnAgregarServicio)
+        val listarPublicacionesButton: Button = view.findViewById(R.id.btnListarPublicaciones) // Nuevo botón
 
         // Mostrar el campo de costo solo si el servicio no es gratuito
         esGratuitoSwitch.setOnCheckedChangeListener { _, isChecked ->
@@ -82,6 +83,12 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
             } else {
                 Toast.makeText(requireContext(), "Completa todos los campos", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Lógica para listar las publicaciones al hacer clic en el botón
+        listarPublicacionesButton.setOnClickListener {
+            val intent = Intent(requireContext(), ListarPublicacionesActivity::class.java)
+            startActivity(intent)
         }
     }
 
