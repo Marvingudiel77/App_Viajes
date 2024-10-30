@@ -8,21 +8,23 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.MarvinGudiel.viajeapp.R
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
 class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicaciones) {
 
-    private lateinit var firestore: FirebaseFirestore
+    private lateinit var database: FirebaseDatabase
     private lateinit var storage: FirebaseStorage
     private var imageUri: Uri? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        firestore = FirebaseFirestore.getInstance()
+        // Inicializar Realtime Database y Firebase Storage
+        database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
 
+        // Referencias a los campos de entrada en el layout
         val nombreServicioEditText: EditText = view.findViewById(R.id.etNombreServicio)
         val categoriaEditText: EditText = view.findViewById(R.id.etCategoria)
         val esGratuitoSwitch: Switch = view.findViewById(R.id.switchEsGratuito)
@@ -52,19 +54,24 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
             val descripcion = descripcionEditText.text.toString()
 
             if (nombreServicio.isNotEmpty() && categoria.isNotEmpty() && descripcion.isNotEmpty()) {
-                val publicacion = hashMapOf(
-                    "nombreServicio" to nombreServicio,
+                // Crear un mapa con los datos de la publicación
+                val publicacion = mapOf(
+                    "nombre_servicio" to nombreServicio,
                     "categoria" to categoria,
-                    "esGratuito" to esGratuito,
+                    "es_gratuito" to esGratuito,
                     "costo" to costo,
                     "descripcion" to descripcion
                 )
 
-                firestore.collection("publicaciones")
-                    .add(publicacion)
-                    .addOnSuccessListener { documentReference ->
+                // Referencia al nodo 'publicaciones' en Realtime Database
+                val publicacionesRef = database.reference.child("publicaciones")
+                val newPublicacionRef = publicacionesRef.push() // Genera un ID único para cada publicación
+
+                // Guardar la publicación en Realtime Database
+                newPublicacionRef.setValue(publicacion)
+                    .addOnSuccessListener {
                         if (imageUri != null) {
-                            subirImagenAFirebase(documentReference.id)
+                            subirImagenAFirebase(newPublicacionRef.key!!)
                         } else {
                             Toast.makeText(requireContext(), "Servicio agregado sin imagen", Toast.LENGTH_SHORT).show()
                         }
@@ -88,14 +95,15 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
     }
 
     // Método para subir la imagen a Firebase Storage
-    private fun subirImagenAFirebase(documentId: String) {
-        val imagenRef = storage.reference.child("publicaciones/$documentId.jpg")
+    private fun subirImagenAFirebase(publicacionId: String) {
+        val imagenRef = storage.reference.child("publicaciones/$publicacionId.jpg")
         imageUri?.let {
             imagenRef.putFile(it)
                 .addOnSuccessListener {
                     imagenRef.downloadUrl.addOnSuccessListener { uri ->
-                        firestore.collection("publicaciones").document(documentId)
-                            .update("imagenUrl", uri.toString())
+                        // Guardar la URL de la imagen en el nodo de la publicación en Realtime Database
+                        database.reference.child("publicaciones").child(publicacionId)
+                            .child("imagen_url").setValue(uri.toString())
                         Toast.makeText(requireContext(), "Servicio agregado con imagen", Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -105,4 +113,3 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
         }
     }
 }
-

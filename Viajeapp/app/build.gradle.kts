@@ -48,12 +48,13 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     implementation(libs.circleImage)
     implementation(libs.glide)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation ("com.google.firebase:firebase-firestore-ktx:24.4.1")
-    implementation ("com.google.firebase:firebase-storage-ktx:20.2.1")
+
+
 
 }
