@@ -8,19 +8,19 @@
     <EditText
         android:id="@+id/etNombreServicio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="68dp"
         android:hint="Nombre del servicio" />
 
     <EditText
         android:id="@+id/etCategoria"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:hint="Categoría (viajes o alimentación)" />
 
     <Switch
         android:id="@+id/switchEsGratuito"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="68dp"
         android:text="¿Es gratuito?" />
 
     <EditText
@@ -34,7 +34,7 @@
     <EditText
         android:id="@+id/etDescripcion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="123dp"
         android:hint="Descripción" />
 
     <Button
