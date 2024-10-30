@@ -118,5 +118,6 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
                     Toast.makeText(requireContext(), "Error al subir la imagen", Toast.LENGTH_SHORT).show()
                 }
         }
+        //Keilyta
     }
 }
