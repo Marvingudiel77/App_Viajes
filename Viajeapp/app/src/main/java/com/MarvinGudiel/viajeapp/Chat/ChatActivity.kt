@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.MarvinGudiel.viajeapp.Adaptadores.AdaptadorChat
 import com.MarvinGudiel.viajeapp.Constantes
 import com.MarvinGudiel.viajeapp.Modelos.Chat
@@ -93,6 +94,11 @@ class ChatActivity : AppCompatActivity() {
                     }
 
                     adaptadorChat.notifyDataSetChanged()
+
+                    binding.chatsRV.setHasFixedSize(true)
+                    var linearLayoutManager = LinearLayoutManager(this@ChatActivity)
+                    linearLayoutManager.stackFromEnd = true
+                    binding.chatsRV.layoutManager= linearLayoutManager
                 }
 
                 override fun onCancelled(error: DatabaseError) {
