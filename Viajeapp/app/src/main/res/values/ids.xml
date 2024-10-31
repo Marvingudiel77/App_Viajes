@@ -14,4 +14,6 @@
     <item name="btnListarPublicaciones" type="id" />
     <item name="btnSiCrearRecomendacion" type="id" />
     <item name="btnNoCrearRecomendacion" type="id" />
+    <item name="btnAgregarRecomendacion" type="id" />
+    <item name="etRecomendacion" type="id" />
 </resources>

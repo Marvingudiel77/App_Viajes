@@ -60,7 +60,7 @@
     <!-- Nuevo texto y botones para la creación de recomendaciones -->
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="53dp"
+        android:layout_height="37dp"
         android:layout_marginTop="16dp"
         android:text="¿Te gustaría crear una recomendación?"
         android:textSize="16sp" />

@@ -32,14 +32,15 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
         val descripcionEditText: EditText = view.findViewById(R.id.etDescripcion)
         val subirImagenButton: Button = view.findViewById(R.id.btnSubirImagen)
         val agregarServicioButton: Button = view.findViewById(R.id.btnAgregarServicio)
-        val listarPublicacionesButton: Button = view.findViewById(R.id.btnListarPublicaciones) // Nuevo botón
-
-
+        val listarPublicacionesButton: Button = view.findViewById(R.id.btnListarPublicaciones)
 
         // Referencias a los nuevos botones para recomendaciones
         val btnSiCrearRecomendacion: Button = view.findViewById(R.id.btnSiCrearRecomendacion)
         val btnNoCrearRecomendacion: Button = view.findViewById(R.id.btnNoCrearRecomendacion)
 
+        // Ocultar botones al inicio
+        btnSiCrearRecomendacion.visibility = View.GONE
+        btnNoCrearRecomendacion.visibility = View.GONE
 
         // Mostrar el campo de costo solo si el servicio no es gratuito
         esGratuitoSwitch.setOnCheckedChangeListener { _, isChecked ->
@@ -78,11 +79,12 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
                 // Guardar la publicación en Realtime Database
                 newPublicacionRef.setValue(publicacion)
                     .addOnSuccessListener {
+                        val publicacionId = newPublicacionRef.key!! // Obtiene el ID de la publicación
                         if (imageUri != null) {
-                            subirImagenAFirebase(newPublicacionRef.key!!)
-                        } else {
-                            Toast.makeText(requireContext(), "Servicio agregado sin imagen", Toast.LENGTH_SHORT).show()
+                            subirImagenAFirebase(publicacionId)
                         }
+                        Toast.makeText(requireContext(), "Servicio agregado", Toast.LENGTH_SHORT).show()
+                        mostrarOpcionRecomendacion(publicacionId, btnSiCrearRecomendacion, btnNoCrearRecomendacion)
                     }
                     .addOnFailureListener {
                         Toast.makeText(requireContext(), "Error al agregar el servicio", Toast.LENGTH_SHORT).show()
@@ -97,23 +99,35 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
             val intent = Intent(requireContext(), ListarPublicacionesActivity::class.java)
             startActivity(intent)
         }
+    }
 
-        // Lógica para el botón "Sí" - abrir el fragmento de recomendaciones
+    // Función para mostrar la opción de agregar una recomendación
+    private fun mostrarOpcionRecomendacion(
+        publicacionId: String,
+        btnSiCrearRecomendacion: Button,
+        btnNoCrearRecomendacion: Button
+    ) {
+        // Mostrar los botones "Sí" y "No"
+        btnSiCrearRecomendacion.visibility = View.VISIBLE
+        btnNoCrearRecomendacion.visibility = View.VISIBLE
+
         btnSiCrearRecomendacion.setOnClickListener {
-            // Reemplazar el fragmento actual con FragmentoRecomendaciones
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragmentoFL, FragmentoRecomendaciones())
-            transaction.addToBackStack(null)
-            transaction.commit()
+            // Abrir FragmentoRecomendaciones y pasar el publicacionId como argumento
+            val fragment = FragmentoRecomendaciones()
+            val args = Bundle()
+            args.putString("publicacionId", publicacionId) // Pasar el ID de la publicación
+            fragment.arguments = args
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentoFL, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
-        // Lógica para el botón "No"
         btnNoCrearRecomendacion.setOnClickListener {
             Toast.makeText(requireContext(), "No se creó ninguna recomendación", Toast.LENGTH_SHORT).show()
         }
-
     }
-
 
     // Método para manejar el resultado de la selección de la imagen
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -141,6 +155,5 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
                     Toast.makeText(requireContext(), "Error al subir la imagen", Toast.LENGTH_SHORT).show()
                 }
         }
-        //Keilyta
     }
 }

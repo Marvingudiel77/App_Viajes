@@ -1,22 +1,35 @@
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Campo de texto para la recomendación -->
-    <EditText
-        android:id="@+id/etRecomendacion"
-        android:layout_width="match_parent"
-        android:layout_height="157dp"
-        android:hint="Escribe una recomendación" />
-
-    <!-- Botón para agregar la recomendación -->
-    <Button
-        android:id="@+id/btnAgregarRecomendacion"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agregar Recomendación" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <!-- Contenedor para las recomendaciones dinámicas -->
+        <LinearLayout
+            android:id="@+id/contenedorRecomendaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <!-- Campo de texto para escribir una nueva recomendación -->
+        <EditText
+            android:id="@+id/etNuevaRecomendacion"
+            android:layout_width="match_parent"
+            android:layout_height="179dp"
+            android:layout_marginTop="16dp"
+            android:hint="Escribe una recomendación" />
+
+        <!-- Botón para agregar la recomendación -->
+        <Button
+            android:id="@+id/btnAgregarRecomendacion"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:layout_marginTop="8dp"
+            android:text="Agregar Recomendación" />
+    </LinearLayout>
+</ScrollView>
