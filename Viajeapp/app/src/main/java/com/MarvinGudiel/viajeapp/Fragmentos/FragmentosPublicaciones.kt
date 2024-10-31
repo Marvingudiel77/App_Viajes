@@ -34,6 +34,13 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
         val agregarServicioButton: Button = view.findViewById(R.id.btnAgregarServicio)
         val listarPublicacionesButton: Button = view.findViewById(R.id.btnListarPublicaciones) // Nuevo botón
 
+
+
+        // Referencias a los nuevos botones para recomendaciones
+        val btnSiCrearRecomendacion: Button = view.findViewById(R.id.btnSiCrearRecomendacion)
+        val btnNoCrearRecomendacion: Button = view.findViewById(R.id.btnNoCrearRecomendacion)
+
+
         // Mostrar el campo de costo solo si el servicio no es gratuito
         esGratuitoSwitch.setOnCheckedChangeListener { _, isChecked ->
             costoEditText.visibility = if (isChecked) View.GONE else View.VISIBLE
@@ -90,7 +97,23 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
             val intent = Intent(requireContext(), ListarPublicacionesActivity::class.java)
             startActivity(intent)
         }
+
+        // Lógica para el botón "Sí" - abrir el fragmento de recomendaciones
+        btnSiCrearRecomendacion.setOnClickListener {
+            // Reemplazar el fragmento actual con FragmentoRecomendaciones
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentoFL, FragmentoRecomendaciones())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        // Lógica para el botón "No"
+        btnNoCrearRecomendacion.setOnClickListener {
+            Toast.makeText(requireContext(), "No se creó ninguna recomendación", Toast.LENGTH_SHORT).show()
+        }
+
     }
+
 
     // Método para manejar el resultado de la selección de la imagen
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

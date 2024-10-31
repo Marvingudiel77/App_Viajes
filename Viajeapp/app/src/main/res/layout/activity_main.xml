@@ -28,12 +28,13 @@
           android:layout_height="1dp"/>
 
   </RelativeLayout>
+    <!-- Contenedor de fragmentos -->
     <FrameLayout
         android:id="@+id/fragmentoFL"
-        android:layout_above="@+id/view"
-        android:layout_below="@+id/toolbarRL"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarRL"
+        android:layout_above="@id/view" />
         <View
           android:id="@+id/view"
             android:layout_above="@+id/bottomNV"

@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Campos existentes para el servicio -->
     <EditText
         android:id="@+id/etNombreServicio"
         android:layout_width="match_parent"
@@ -49,11 +50,40 @@
         android:layout_height="wrap_content"
         android:text="Agregar Servicio" />
 
-    <!-- Nuevo botón para listar publicaciones -->
+    <!-- Botón para listar publicaciones -->
     <Button
         android:id="@+id/btnListarPublicaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Listar Publicaciones" />
-</LinearLayout>
 
+    <!-- Nuevo texto y botones para la creación de recomendaciones -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:text="¿Te gustaría crear una recomendación?"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSiCrearRecomendacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sí" />
+
+        <Button
+            android:id="@+id/btnNoCrearRecomendacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="No" />
+    </LinearLayout>
+
+</LinearLayout>

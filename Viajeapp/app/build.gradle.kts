@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     implementation(libs.circleImage)
     implementation(libs.glide)
