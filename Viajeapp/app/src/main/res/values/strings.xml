@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Viaje app</string>
+    <string name="app_name">TripMate</string>
     <string name="item_perfil">Perfil</string>
     <string name="item_usuarios">Usuarios</string>
     <string name="item_chats">Chats</string>
