@@ -16,6 +16,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"/>
 
+        <EditText
+            android:id="@+id/etNuevoTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:hint="Titulo"/>
+
         <!-- Campo de texto para escribir una nueva recomendación -->
         <EditText
             android:id="@+id/etNuevaRecomendacion"

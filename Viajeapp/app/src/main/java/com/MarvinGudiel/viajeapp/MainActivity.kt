@@ -53,11 +53,6 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.item_recomendaciones->{
-                    //visualizar fragmentos recomendaciones
-                    verRecomendacionesFragment()
-                    true
-                }
                 else -> {
                     false
                 }

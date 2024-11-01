@@ -16,6 +16,7 @@ class FragmentoRecomendaciones : Fragment(R.layout.fragment_fragmentos_recomenda
     private lateinit var contenedorRecomendaciones: LinearLayout
     private lateinit var etNuevaRecomendacion: EditText
     private lateinit var btnAgregarRecomendacion: Button
+    private  lateinit var  etNuevoTitulo  : EditText
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,17 +25,19 @@ class FragmentoRecomendaciones : Fragment(R.layout.fragment_fragmentos_recomenda
         database = FirebaseDatabase.getInstance()
         contenedorRecomendaciones = view.findViewById(R.id.contenedorRecomendaciones)
         etNuevaRecomendacion = view.findViewById(R.id.etNuevaRecomendacion)
+        etNuevoTitulo = view.findViewById(R.id.etNuevoTitulo)
         btnAgregarRecomendacion = view.findViewById(R.id.btnAgregarRecomendacion)
 
         btnAgregarRecomendacion.setOnClickListener {
             val recomendacion = etNuevaRecomendacion.text.toString()
+            val titulo  = etNuevoTitulo.text.toString()
 
             val publicacionId =  arguments?.getString("publicacionId") // Reemplaza con el ID correcto
 
             if (recomendacion.isNotBlank()) {
                 // Guardar la recomendación en Firebase
                 if (publicacionId != null) {
-                    agregarRecomendacionAFirebase(publicacionId, recomendacion)
+                    agregarRecomendacionAFirebase(publicacionId, titulo, recomendacion)
                 }
                 // Agregar un nuevo campo de recomendación en la pantalla
                 agregarCampoDeRecomendacion(recomendacion)
@@ -61,12 +64,13 @@ class FragmentoRecomendaciones : Fragment(R.layout.fragment_fragmentos_recomenda
     }
 
     // Método para guardar cada recomendación en Firebase
-    private fun agregarRecomendacionAFirebase(publicacionId: String, recomendacion: String) {
+    private fun agregarRecomendacionAFirebase(publicacionId: String,titulo:String, recomendacion: String) {
         val recomendacionesRef = database.reference.child("publicaciones")
             .child(publicacionId)
             .child("recomendaciones")
             .push() // Genera un nuevo ID para cada recomendación
-        val reco=  Recomendacion("titulooo", recomendacion)
+
+        val reco=  Recomendacion(titulo , recomendacion)
         recomendacionesRef.setValue(reco)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Recomendación guardada en Firebase", Toast.LENGTH_SHORT).show()
