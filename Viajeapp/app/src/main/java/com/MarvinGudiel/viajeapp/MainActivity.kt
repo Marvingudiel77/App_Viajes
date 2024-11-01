@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosChats
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosPerfil
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosPublicaciones
+import com.MarvinGudiel.viajeapp.Fragmentos.ListarPublicacionesFragment
 import com.MarvinGudiel.viajeapp.Fragmentos.RecomendacionesFragment
 import com.MarvinGudiel.viajeapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() {
     private fun verFragmentoPublicaciones(){
         binding.tvTitulo.text = "PUBLICACIONES"
 
-        val fragment = FragmentosPublicaciones()
+        val fragment = ListarPublicacionesFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentoFL.id, fragment, "Fragment Publicaciones")
         fragmentTransaction.commit()

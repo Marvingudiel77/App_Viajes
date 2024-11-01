@@ -2,7 +2,6 @@ package com.MarvinGudiel.viajeapp.Fragmentos
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +20,7 @@ class ListarPublicacionesActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listar_publicaciones)
+        setContentView(R.layout.fragment_listar_publicaciones)
 
         recyclerView = findViewById(R.id.recyclerViewPublicaciones)
         recyclerView.layoutManager = LinearLayoutManager(this)
