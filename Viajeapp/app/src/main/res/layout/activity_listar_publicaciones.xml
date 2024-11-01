@@ -5,8 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <!-- Botón para ver recomendaciones -->
+    <Button
+        android:id="@+id/verRecomendacionesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:text="@string/btn_recomendaciones"
+        android:visibility="visible" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPublicaciones"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 </LinearLayout>

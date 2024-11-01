@@ -55,7 +55,8 @@
         android:id="@+id/btnListarPublicaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Listar Publicaciones" />
+        android:text="Listar Publicaciones"
+        android:visibility="visible" />
 
     <!-- Nuevo texto y botones para la creación de recomendaciones -->
     <TextView
