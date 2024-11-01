@@ -1,5 +1,6 @@
 package com.MarvinGudiel.viajeapp.Fragmentos
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,12 +23,17 @@ class PublicacionesAdapter(private val publicacionesList: List<Publicacion>,
 
     override fun onBindViewHolder(holder: PublicacionViewHolder, position: Int) {
         val publicacion = publicacionesList[position]
+        val fragment = RecomendacionesFragment()
         holder.bind(publicacion)
+
+        val args = Bundle()
+        args.putString("publicacionId", publicacion.key) // Pasar el ID de la publicación
+        fragment.arguments = args
         // Configurar el clic en el botón para abrir el fragmento de detalle
         holder.btnPubReco.setOnClickListener {
-            val detalleFragment = RecomendacionesFragment()
+
             fragmentManager.beginTransaction()
-                .replace(R.id.fragmentoFL, detalleFragment)
+                .replace(R.id.fragmentoFL, fragment)
                 .addToBackStack(null)
                 .commit()
         }

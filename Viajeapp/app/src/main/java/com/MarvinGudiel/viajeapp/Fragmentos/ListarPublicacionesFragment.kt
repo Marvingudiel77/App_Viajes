@@ -51,7 +51,10 @@ class ListarPublicacionesFragment : Fragment() {
                 publicacionesList.clear()
                 for (dataSnapshot in snapshot.children) {
                     val publicacion = dataSnapshot.getValue(Publicacion::class.java)
-                    publicacion?.let { publicacionesList.add(it) }
+                    publicacion?.let {
+                      it.key= dataSnapshot.key
+                        publicacionesList.add(it) }
+
                 }
                 adapter.notifyDataSetChanged()
             }
