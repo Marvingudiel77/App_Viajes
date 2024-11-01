@@ -6,15 +6,15 @@
     android:orientation="vertical">
 
 
-    <!-- Botón para ver recomendaciones -->
-    <Button
-        android:id="@+id/verRecomendacionesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:text="@string/btn_recomendaciones"
-        android:visibility="visible" />
+<!--    &lt;!&ndash; Botón para ver recomendaciones &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/btn_recomendaciones"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:text="@string/btn_recomendaciones"-->
+<!--        android:visibility="visible" />-->
 
 
     <androidx.recyclerview.widget.RecyclerView

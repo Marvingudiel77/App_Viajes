@@ -1,6 +1,8 @@
 package com.MarvinGudiel.viajeapp.Fragmentos
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +18,7 @@ class ListarPublicacionesActivity : AppCompatActivity() {
     private lateinit var adapter: PublicacionesAdapter
     private lateinit var database: DatabaseReference
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar_publicaciones)
@@ -44,5 +47,21 @@ class ListarPublicacionesActivity : AppCompatActivity() {
                 // Manejo del error
             }
         })
+//        val btnRecomendaciones = findViewById<Button>(R.id.btn_recomenda)
+//        btnRecomendaciones.setOnClickListener {
+//            mostrarRecomendacionesFragment()
+//        }
+
+
+
     }
+
+//    private fun mostrarRecomendacionesFragment() {
+//        // Reemplaza el contenido actual por el fragmento de recomendaciones
+//        val fragment = RecomendacionesFragment()
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragmentoFL, fragment)
+//            .addToBackStack(null)
+//            .commit()
+//    }
 }

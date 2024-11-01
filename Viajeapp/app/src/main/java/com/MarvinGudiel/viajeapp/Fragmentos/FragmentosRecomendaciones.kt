@@ -28,11 +28,14 @@ class FragmentoRecomendaciones : Fragment(R.layout.fragment_fragmentos_recomenda
 
         btnAgregarRecomendacion.setOnClickListener {
             val recomendacion = etNuevaRecomendacion.text.toString()
-            val publicacionId = "ID_de_la_publicacion" // Reemplaza con el ID correcto
+
+            val publicacionId =  arguments?.getString("publicacionId") // Reemplaza con el ID correcto
 
             if (recomendacion.isNotBlank()) {
                 // Guardar la recomendación en Firebase
-                agregarRecomendacionAFirebase(publicacionId, recomendacion)
+                if (publicacionId != null) {
+                    agregarRecomendacionAFirebase(publicacionId, recomendacion)
+                }
                 // Agregar un nuevo campo de recomendación en la pantalla
                 agregarCampoDeRecomendacion(recomendacion)
                 etNuevaRecomendacion.text.clear() // Limpiar el campo de entrada después de agregar

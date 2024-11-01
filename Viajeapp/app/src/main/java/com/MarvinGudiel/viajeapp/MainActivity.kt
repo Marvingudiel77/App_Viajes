@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosChats
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosPerfil
 import com.MarvinGudiel.viajeapp.Fragmentos.FragmentosPublicaciones
+import com.MarvinGudiel.viajeapp.Fragmentos.RecomendacionesFragment
 import com.MarvinGudiel.viajeapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -48,6 +49,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.item_publicaciones->{
                     //visualizar fragmentos usuarios
                     verFragmentoPublicaciones()
+                    true
+                }
+
+                R.id.item_recomendaciones->{
+                    //visualizar fragmentos recomendaciones
+                    verRecomendacionesFragment()
                     true
                 }
                 else -> {
@@ -91,6 +98,16 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentoFL.id, fragment, "Fragment Publicaciones")
         fragmentTransaction.commit()
+    }
+
+    private fun verRecomendacionesFragment() {
+        // Reemplaza el contenido actual por el fragmento de recomendaciones
+        val fragment = RecomendacionesFragment()
+        binding.tvTitulo.text = "RECOMENDACIONES"
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentoFL, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 
