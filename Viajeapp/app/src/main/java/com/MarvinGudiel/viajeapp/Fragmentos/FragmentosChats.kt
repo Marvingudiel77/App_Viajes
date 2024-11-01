@@ -25,7 +25,7 @@ class FragmentosChats : Fragment() {
     private lateinit var chatsArrayList: ArrayList<Chats>
     private lateinit var adaptadorChats: AdaptadorChats
     private lateinit var mContext: Context
-    private lateinit var btnUsuarios: Button // Botón Usuarios
+    private lateinit var btnUsuarios: Button 
 
     override fun onAttach(context: Context) {
         mContext = context
@@ -35,14 +35,13 @@ class FragmentosChats : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflamos la vista desde el archivo XML en lugar del binding, para acceder al botón `btnUsuarios`
+
         val view = inflater.inflate(R.layout.fragment_fragmentos_chats, container, false)
 
-        // Inicializamos `binding` y el botón `btnUsuarios`
+
         binding = FragmentFragmentosChatsBinding.bind(view)
         btnUsuarios = view.findViewById(R.id.btnUsuarios)
 
-        // Configura el clic del botón para cambiar de fragmento
         btnUsuarios.setOnClickListener {
             val fragment = FragmentUsuarios()
             requireActivity().supportFragmentManager.beginTransaction()
@@ -82,7 +81,7 @@ class FragmentosChats : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Muestra un mensaje de error si ocurre algún problema al cargar los chats
+
                 println("Error al cargar chats: ${error.message}")
             }
         })

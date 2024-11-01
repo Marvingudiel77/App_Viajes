@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV_usuarios"
         android:layout_marginTop="7dp"
@@ -28,5 +27,15 @@
         android:padding="5dp"
         android:layout_height="match_parent"/>
 
+    <!-- Botón Regresar -->
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Regresar" />
 
-    </RelativeLayout>
+</RelativeLayout>
+

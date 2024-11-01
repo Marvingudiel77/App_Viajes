@@ -8,22 +8,6 @@
     android:padding="10dp"
     tools:context=".Fragmentos.FragmentosChats">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/buscarMCV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
-        app:cardUseCompatPadding="true">
-
-        <EditText
-            android:id="@+id/et_buscar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:hint="@string/et_buscar" />
-
-    </com.google.android.material.card.MaterialCardView>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatsRV"
         android:layout_width="match_parent"
