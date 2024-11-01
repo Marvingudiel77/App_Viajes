@@ -45,4 +45,5 @@
     <string name="resenas">resenasspub</string>
     <string name="ic_like">btnlike</string>
     <string name="ic_dislike">dislike</string>
+    <string name="agregar_comentario">agregar comentarios</string>
 </resources>

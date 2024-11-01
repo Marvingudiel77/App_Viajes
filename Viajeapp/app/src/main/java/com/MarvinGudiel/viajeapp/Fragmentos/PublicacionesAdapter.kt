@@ -25,16 +25,26 @@ class PublicacionesAdapter(private val publicacionesList: List<Publicacion>,
     override fun onBindViewHolder(holder: PublicacionViewHolder, position: Int) {
         val publicacion = publicacionesList[position]
         val fragment = RecomendacionesFragment()
+        val fragmentResena = ResenasFragment()
         holder.bind(publicacion)
 
         val args = Bundle()
         args.putString("publicacionId", publicacion.key) // Pasar el ID de la publicación
         fragment.arguments = args
+        fragmentResena.arguments = args
         // Configurar el clic en el botón para abrir el fragmento de detalle
         holder.btnPubReco.setOnClickListener {
 
             fragmentManager.beginTransaction()
                 .replace(R.id.fragmentoFL, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        holder.btnPubResena.setOnClickListener {
+
+            fragmentManager.beginTransaction()
+                .replace(R.id.fragmentoFL, fragmentResena)
                 .addToBackStack(null)
                 .commit()
         }
@@ -48,6 +58,7 @@ class PublicacionesAdapter(private val publicacionesList: List<Publicacion>,
         private val costoTextView: TextView = itemView.findViewById(R.id.costoTextView)
         private val descripcionTextView: TextView = itemView.findViewById(R.id.descripcionTextView)
         val btnPubReco :ImageButton= itemView.findViewById(R.id.btn_pub_reco)
+        val btnPubResena :ImageButton= itemView.findViewById(R.id.btn_pub_resena)
         fun bind(publicacion: Publicacion) {
             nombreServicioTextView.text = publicacion.nombre_servicio
             categoriaTextView.text = publicacion.categoria
