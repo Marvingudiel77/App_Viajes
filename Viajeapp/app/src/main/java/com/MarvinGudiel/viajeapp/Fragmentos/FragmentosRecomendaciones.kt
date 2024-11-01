@@ -66,8 +66,8 @@ class FragmentoRecomendaciones : Fragment(R.layout.fragment_fragmentos_recomenda
             .child(publicacionId)
             .child("recomendaciones")
             .push() // Genera un nuevo ID para cada recomendación
-
-        recomendacionesRef.setValue(recomendacion)
+        val reco=  Recomendacion("titulooo", recomendacion)
+        recomendacionesRef.setValue(reco)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Recomendación guardada en Firebase", Toast.LENGTH_SHORT).show()
             }
