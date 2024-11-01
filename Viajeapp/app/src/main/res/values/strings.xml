@@ -41,4 +41,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_recomendaciones">⭐ Ver Recomendaciones</string>
+    <string name="recomendaciones">recomendacionstring</string>
+    <string name="resenas">resenasspub</string>
+    <string name="ic_like">btnlike</string>
+    <string name="ic_dislike">dislike</string>
 </resources>
