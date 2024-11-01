@@ -32,7 +32,7 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
         val descripcionEditText: EditText = view.findViewById(R.id.etDescripcion)
         val subirImagenButton: Button = view.findViewById(R.id.btnSubirImagen)
         val agregarServicioButton: Button = view.findViewById(R.id.btnAgregarServicio)
-        val listarPublicacionesButton: Button = view.findViewById(R.id.btnListarPublicaciones)
+//        val listarPublicacionesButton: Button = view.findViewById(R.id.btnListarPublicaciones)
 
         // Referencias a los nuevos botones para recomendaciones
         val btnSiCrearRecomendacion: Button = view.findViewById(R.id.btnSiCrearRecomendacion)
@@ -94,11 +94,11 @@ class FragmentosPublicaciones : Fragment(R.layout.fragment_fragmentos_publicacio
             }
         }
 
-        // Lógica para listar las publicaciones al hacer clic en el botón
-        listarPublicacionesButton.setOnClickListener {
-            val intent = Intent(requireContext(), ListarPublicacionesActivity::class.java)
-            startActivity(intent)
-        }
+//        // Lógica para listar las publicaciones al hacer clic en el botón
+//        listarPublicacionesButton.setOnClickListener {
+//            val intent = Intent(requireContext(), ListarPublicacionesFragment::class.java)
+//            startActivity(intent)
+//        }
     }
 
     // Función para mostrar la opción de agregar una recomendación

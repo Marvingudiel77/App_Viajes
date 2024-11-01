@@ -39,7 +39,7 @@ class ListarPublicacionesFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerViewPublicaciones)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         publicacionesList = mutableListOf()
-        adapter = PublicacionesAdapter(publicacionesList)
+        adapter = PublicacionesAdapter(publicacionesList,parentFragmentManager)
         recyclerView.adapter = adapter
 
         // Referencia a Realtime Database
