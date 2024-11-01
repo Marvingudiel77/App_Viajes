@@ -1,3 +1,4 @@
+
 package com.MarvinGudiel.viajeapp.Fragmentos
 
 import android.os.Bundle
@@ -5,6 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,10 +25,15 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
 class ResenasFragment : Fragment() {
-
+    private lateinit var database: FirebaseDatabase
     private lateinit var recyclerView: RecyclerView
     private lateinit var resenasList: MutableList<Resena>
     private lateinit var adapter: ResenaAdapter
+
+    private lateinit var etNuevaResena: EditText
+    private lateinit var btnAgregarRese: ImageButton
+
+    private lateinit var contenedorResena: LinearLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +44,8 @@ class ResenasFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        database = FirebaseDatabase.getInstance()
 
         recyclerView = view.findViewById(R.id.recyclerViewResenas)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -46,8 +58,29 @@ class ResenasFragment : Fragment() {
         val publicacionId = arguments?.getString("publicacionId") ?: return
         Log.i("FirebaseDebug", "PublicacionId recibido: $publicacionId")
 
-        // Llamar a la función suspendida dentro de una corrutina
-        viewLifecycleOwner.lifecycleScope.launch() {
+        // Cargar reseñas iniciales
+        cargarResenas(publicacionId)
+
+        etNuevaResena = view.findViewById(R.id.editTextComentario)
+        btnAgregarRese = view.findViewById(R.id.btnAgregarComentario)
+
+        btnAgregarRese.setOnClickListener {
+            val textoResena = etNuevaResena.text.toString()
+
+            if (textoResena.isNotBlank()) {
+                if (publicacionId != null) {
+                    agregarResenaAFirebase(publicacionId, textoResena)
+                }
+                etNuevaResena.text.clear() // Limpiar el campo de entrada después de agregar
+            } else {
+                Toast.makeText(requireContext(), "Por favor, escribe un comentario", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    // Función para cargar reseñas
+    private fun cargarResenas(publicacionId: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val resenas = obtenerResenas(publicacionId)
                 resenasList.clear()
@@ -59,7 +92,7 @@ class ResenasFragment : Fragment() {
         }
     }
 
-    // Función suspendida para obtener recomendaciones
+    // Función suspendida para obtener reseñas
     private suspend fun obtenerResenas(publicacionId: String): List<Resena> = suspendCancellableCoroutine { continuation ->
         val database = FirebaseDatabase.getInstance().getReference("publicaciones/$publicacionId/resenas")
 
@@ -85,5 +118,27 @@ class ResenasFragment : Fragment() {
             database.removeEventListener(listener)
         }
     }
+
+    // Método para guardar cada reseña en Firebase
+    private fun agregarResenaAFirebase(publicacionId: String, texto: String) {
+        val resenasRef = database.reference.child("publicaciones")
+            .child(publicacionId)
+            .child("resenas")
+            .push() // Genera un nuevo ID para cada reseña
+
+        val res = Resena(texto)
+        resenasRef.setValue(res)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "Comentario enviado", Toast.LENGTH_SHORT).show()
+
+                // Recargar reseñas después de agregar una nueva
+                cargarResenas(publicacionId)
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Error al enviar comentario", Toast.LENGTH_SHORT).show()
+            }
+    }
 }
+
+
 
