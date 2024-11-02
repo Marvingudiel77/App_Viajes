@@ -48,11 +48,19 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     implementation(libs.loginGoogle)
     implementation(libs.circleImage)
     implementation(libs.firebaseStorage)
     implementation(libs.glide)
+
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+
 }

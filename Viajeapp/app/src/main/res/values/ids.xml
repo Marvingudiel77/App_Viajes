@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="descripcionTextView" type="id" />
+    <item name="costoTextView" type="id" />
+    <item name="categoriaTextView" type="id" />
+    <item name="nombreServicioTextView" type="id" />
+    <item name="etNombreServicio" type="id" />
+    <item name="etCategoria" type="id" />
+    <item name="switchEsGratuito" type="id" />
+    <item name="etCosto" type="id" />
+    <item name="etDescripcion" type="id" />
+    <item name="btnSubirImagen" type="id" />
+    <item name="btnAgregarServicio" type="id" />
+    <item name="btnListarPublicaciones" type="id" />
+    <item name="btnSiCrearRecomendacion" type="id" />
+    <item name="btnNoCrearRecomendacion" type="id" />
+    <item name="btnAgregarRecomendacion" type="id" />
+    <item name="etRecomendacion" type="id" />
+</resources>

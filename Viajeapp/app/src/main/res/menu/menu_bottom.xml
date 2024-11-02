@@ -8,8 +8,11 @@
         android:id="@+id/item_publicaciones"
         android:title="@string/item_publicaciones"
         android:icon="@drawable/icono_publicaciones"/>
+
+
     <item
         android:id="@+id/item_chats"
         android:title="@string/item_chats"
         android:icon="@drawable/icono_chats"/>
+
 </menu>
