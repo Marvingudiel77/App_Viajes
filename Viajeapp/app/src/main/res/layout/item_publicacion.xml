@@ -1,49 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/nombreServicioTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre del Servicio"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:id="@+id/categoriaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Categoría" />
+        android:text="Categoría"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:id="@+id/costoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Costo" />
+        android:text="Costo"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:id="@+id/descripcionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descripción" />
+        android:text="Descripción"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp" />
 
-    <!-- Botones Alineados Horizontalmente -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:layout_marginStart="16dp">
+        android:gravity="center_vertical"
+        android:paddingTop="12dp"
+        android:layout_marginStart="8dp">
 
-        <!-- Botón de Recomendaciones -->
         <ImageButton
             android:id="@+id/btn_pub_reco"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_reco2"
             android:background="@drawable/button_background_round"
@@ -51,12 +59,11 @@
             android:contentDescription="@string/recomendaciones"
             app:tint="@android:color/white" />
 
-        <!-- Botón de Reseñas -->
         <ImageButton
             android:id="@+id/btn_pub_resena"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="12dp"
             android:src="@drawable/ic_reco"
             android:background="@drawable/button_background_round"
             android:backgroundTint="?attr/colorPrimary"
@@ -67,15 +74,15 @@
             android:id="@+id/cantlike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5" />
+            android:text="5"
+            android:textSize="14sp"
+            android:layout_marginEnd="4dp" />
 
-
-        <!-- Botón de Like -->
         <ImageButton
             android:id="@+id/btn_like"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="12dp"
             android:src="@drawable/ic_like"
             android:background="@drawable/button_background_round"
             android:backgroundTint="?attr/colorPrimary"
@@ -86,13 +93,14 @@
             android:id="@+id/cantdislike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5" />
+            android:text="5"
+            android:textSize="14sp"
+            android:layout_marginEnd="4dp" />
 
-        <!-- Botón de Dislike -->
         <ImageButton
             android:id="@+id/btn_dislike"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:src="@drawable/ic_dislike"
             android:background="@drawable/button_background_round"
             android:backgroundTint="?attr/colorPrimary"
@@ -102,3 +110,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

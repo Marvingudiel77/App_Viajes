@@ -3,26 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp">
 
-    <!-- Campos existentes para el servicio -->
     <EditText
         android:id="@+id/etNombreServicio"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:hint="Nombre del servicio" />
+        android:layout_height="wrap_content"
+        android:hint="Nombre del servicio"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp"
+        android:textColorHint="#888"/>
 
     <EditText
         android:id="@+id/etCategoria"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:hint="Categoría (viajes o alimentación)" />
+        android:layout_height="wrap_content"
+        android:hint="Categoría"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp"
+        android:textColorHint="#888"/>
 
     <Switch
         android:id="@+id/switchEsGratuito"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:text="¿Es gratuito?" />
+        android:layout_height="wrap_content"
+        android:text="¿Es gratuito?"
+        android:textColor="#3A86FF"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#3A86FF"/>
 
     <EditText
         android:id="@+id/etCosto"
@@ -30,40 +38,52 @@
         android:layout_height="wrap_content"
         android:hint="Costo del servicio"
         android:inputType="numberDecimal"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:padding="16dp"
+        android:textColorHint="#888"/>
 
     <EditText
         android:id="@+id/etDescripcion"
         android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:hint="Descripción" />
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp"
+        android:textColorHint="#888"/>
 
     <Button
         android:id="@+id/btnSubirImagen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Subir imagen" />
+        android:text="Subir imagen"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#3A86FF"
+        android:textColor="#FFF"
+        android:padding="12dp"/>
 
     <Button
         android:id="@+id/btnAgregarServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agregar Servicio" />
+        android:text="Agregar Servicio"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#3A86FF"
+        android:textColor="#FFF"
+        android:padding="12dp"/>
 
-
-
-    <!-- Nuevo texto y botones para la creación de recomendaciones -->
+    <!-- Texto para invitación a crear recomendaciones -->
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="¿Te gustaría crear una recomendación?"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="#3A86FF"
+        android:layout_marginBottom="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -71,14 +91,20 @@
             android:id="@+id/btnSiCrearRecomendacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sí" />
+            android:text="Sí"
+            android:backgroundTint="#06D6A0"
+            android:textColor="#FFF"
+            android:padding="10dp"/>
 
         <Button
             android:id="@+id/btnNoCrearRecomendacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="No" />
+            android:text="No"
+            android:backgroundTint="#EF476F"
+            android:textColor="#FFF"
+            android:padding="10dp"/>
     </LinearLayout>
-
 </LinearLayout>
+

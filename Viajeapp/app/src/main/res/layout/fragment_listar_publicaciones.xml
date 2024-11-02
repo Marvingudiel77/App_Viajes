@@ -3,13 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <Button
         android:id="@+id/btn_add"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Agregar Publicación" />
+        android:text="Agregar Publicación"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/ic_mas"
+        android:backgroundTint="@android:color/black"
+        android:layout_gravity="end" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPublicaciones"
@@ -18,3 +23,4 @@
         android:layout_weight="1" />
 
 </LinearLayout>
+

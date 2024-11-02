@@ -2,41 +2,60 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="25dp">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!-- Contenedor para las recomendaciones dinámicas -->
         <LinearLayout
-            android:id="@+id/contenedorRecomendaciones"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|center_vertical">
 
-        <EditText
-            android:id="@+id/etNuevoTitulo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:hint="Titulo"/>
 
-        <!-- Campo de texto para escribir una nueva recomendación -->
-        <EditText
-            android:id="@+id/etNuevaRecomendacion"
-            android:layout_width="match_parent"
-            android:layout_height="179dp"
-            android:layout_marginTop="16dp"
-            android:hint="Escribe una recomendación" />
+            <LinearLayout
+                android:id="@+id/contenedorRecomendaciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"/>
 
-        <!-- Botón para agregar la recomendación -->
-        <Button
-            android:id="@+id/btnAgregarRecomendacion"
-            android:layout_width="match_parent"
-            android:layout_height="83dp"
-            android:layout_marginTop="8dp"
-            android:text="Agregar Recomendación" />
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etNuevoTitulo"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Titulo"
+                android:padding="10dp"
+
+                android:gravity="center"/>
+
+
+            <EditText
+                android:id="@+id/etNuevaRecomendacion"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:hint="Escribe una recomendación"
+                android:padding="10dp"
+                android:gravity="center_vertical"/>
+
+
+            <Button
+                android:id="@+id/btnAgregarRecomendacion"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Agregar Recomendación"
+                android:backgroundTint="@android:color/black"
+                android:textColor="@android:color/white"
+                android:padding="8dp"/>
+        </LinearLayout>
+    </FrameLayout>
 </ScrollView>
+
+
+
