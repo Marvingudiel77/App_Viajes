@@ -3,32 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@drawable/fondo">
 
     <EditText
         android:id="@+id/etNombreServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre del servicio"
+        android:textColorHint="@color/white"
+        android:textStyle="bold"
         android:padding="16dp"
-        android:layout_marginBottom="12dp"
-        android:textColorHint="#888"/>
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Categoría"
+        android:textColorHint="@color/white"
+        android:textStyle="bold"
         android:padding="16dp"
         android:layout_marginBottom="12dp"
-        android:textColorHint="#888"/>
+        android:textColor="@color/white"
+        />
 
     <Switch
         android:id="@+id/switchEsGratuito"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="¿Es gratuito?"
-        android:textColor="#3A86FF"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_marginBottom="12dp"
         android:backgroundTint="#3A86FF"/>
 
@@ -40,16 +46,19 @@
         android:inputType="numberDecimal"
         android:visibility="gone"
         android:padding="16dp"
-        android:textColorHint="#888"/>
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/etDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Descripción"
+        android:textColorHint="@color/white"
+        android:textStyle="bold"
         android:padding="16dp"
         android:layout_marginBottom="12dp"
-        android:textColorHint="#888"/>
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnSubirImagen"
@@ -57,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="Subir imagen"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#3A86FF"
+        android:backgroundTint="@color/black"
         android:textColor="#FFF"
         android:padding="12dp"/>
 
@@ -67,7 +76,7 @@
         android:layout_height="wrap_content"
         android:text="Agregar Servicio"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#3A86FF"
+        android:backgroundTint="@color/black"
         android:textColor="#FFF"
         android:padding="12dp"/>
 
@@ -78,7 +87,8 @@
         android:layout_gravity="center"
         android:text="¿Te gustaría crear una recomendación?"
         android:textSize="16sp"
-        android:textColor="#3A86FF"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
     <LinearLayout
