@@ -4,14 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/textoTextView"
-        android:layout_width="367dp"
+        android:id="@+id/nombreUsuarioTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Texto"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="16sp" />
+    
 
+    <TextView
+        android:id="@+id/textoResenaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp" />
+
+    <!-- Contenedor para las estrellas -->
+    <LinearLayout
+        android:id="@+id/calificacionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+<ImageView
+            android:id="@+id/star1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_empty" />
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_empty" />
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_empty" />
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_empty" />
+
+        <ImageView
+            android:id="@+id/star5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_empty" />
+    </LinearLayout>
 </LinearLayout>
