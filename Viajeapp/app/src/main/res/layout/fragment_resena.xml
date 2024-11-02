@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="COMENTARIOS"
+        android:text="RESEÑAS"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -19,19 +19,50 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- Sección para agregar comentario -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/star1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_empty" />
+            <ImageView
+                android:id="@+id/star5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_empty" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/editTextComentario"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="1"
             android:background="@drawable/edittext_background"
             android:hint="Escribe un comentario..."
             android:padding="12dp"
@@ -43,12 +74,11 @@
             android:id="@+id/btnAgregarComentario"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/button_background_round"
             android:backgroundTint="?attr/colorPrimary"
             android:contentDescription="@string/agregar_comentario"
             android:src="@drawable/ic_send"
             app:tint="@android:color/white" />
     </LinearLayout>
-
 </LinearLayout>
