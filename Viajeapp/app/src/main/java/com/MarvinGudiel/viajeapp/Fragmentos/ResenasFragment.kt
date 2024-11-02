@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.MarvinGudiel.viajeapp.Adaptadores.ResenaAdapter
+import com.MarvinGudiel.viajeapp.Modelos.Resena
 import com.google.firebase.database.FirebaseDatabase
 import com.MarvinGudiel.viajeapp.R
 import com.google.firebase.database.DataSnapshot
@@ -27,13 +30,14 @@ import kotlin.coroutines.resumeWithException
 class ResenasFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var recyclerView: RecyclerView
-    private lateinit var resenasList: MutableList<Resena>
+    private lateinit var resenasList: MutableList<R
+    esena>
     private lateinit var adapter: ResenaAdapter
 
     private lateinit var etNuevaResena: EditText
     private lateinit var btnAgregarRese: ImageButton
-
-    private lateinit var contenedorResena: LinearLayout
+    private lateinit var stars: List<ImageView>
+    private var selectedRating: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,31 +58,51 @@ class ResenasFragment : Fragment() {
         adapter = ResenaAdapter(resenasList)
         recyclerView.adapter = adapter
 
-        // Obtener el argumento publicacionId
         val publicacionId = arguments?.getString("publicacionId") ?: return
         Log.i("FirebaseDebug", "PublicacionId recibido: $publicacionId")
 
-        // Cargar reseñas iniciales
         cargarResenas(publicacionId)
 
         etNuevaResena = view.findViewById(R.id.editTextComentario)
         btnAgregarRese = view.findViewById(R.id.btnAgregarComentario)
 
+        stars = listOf(
+            view.findViewById(R.id.star1),
+            view.findViewById(R.id.star2),
+            view.findViewById(R.id.star3),
+            view.findViewById(R.id.star4),
+            view.findViewById(R.id.star5)
+        )
+
+        for (i in stars.indices) {
+            stars[i].setOnClickListener {
+                selectedRating = i + 1
+                updateStarRating()
+            }
+        }
+
         btnAgregarRese.setOnClickListener {
             val textoResena = etNuevaResena.text.toString()
 
-            if (textoResena.isNotBlank()) {
+            if (textoResena.isNotBlank() && selectedRating > 0) {
                 if (publicacionId != null) {
-                    agregarResenaAFirebase(publicacionId, textoResena)
+                    agregarResenaAFirebase(publicacionId, textoResena, selectedRating)
                 }
-                etNuevaResena.text.clear() // Limpiar el campo de entrada después de agregar
+                etNuevaResena.text.clear()
+                selectedRating = 0
+                updateStarRating()
             } else {
-                Toast.makeText(requireContext(), "Por favor, escribe un comentario", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Por favor, escribe un comentario y selecciona una calificación", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    // Función para cargar reseñas
+    private fun updateStarRating() {
+        for (i in stars.indices) {
+ stars[i].setImageResource(if (i < selectedRating) R.drawable.ic_star_filled else R.drawable.ic_star_empty)
+        }
+    }
+
     private fun cargarResenas(publicacionId: String) {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
@@ -92,7 +116,6 @@ class ResenasFragment : Fragment() {
         }
     }
 
-    // Función suspendida para obtener reseñas
     private suspend fun obtenerResenas(publicacionId: String): List<Resena> = suspendCancellableCoroutine { continuation ->
         val database = FirebaseDatabase.getInstance().getReference("publicaciones/$publicacionId/resenas")
 
@@ -103,7 +126,7 @@ class ResenasFragment : Fragment() {
                     val resena = dataSnapshot.getValue(Resena::class.java)
                     resena?.let { resenasList.add(it) }
                 }
-                continuation.resume(resenasList)
+ continuation.resume(resenasList)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -113,32 +136,26 @@ class ResenasFragment : Fragment() {
 
         database.addListenerForSingleValueEvent(listener)
 
-        // Cancelar la consulta si la corrutina es cancelada
         continuation.invokeOnCancellation {
             database.removeEventListener(listener)
         }
     }
 
-    // Método para guardar cada reseña en Firebase
-    private fun agregarResenaAFirebase(publicacionId: String, texto: String) {
+    private fun agregarResenaAFirebase(publicacionId: String, texto: String, rating: Int) {
         val resenasRef = database.reference.child("publicaciones")
             .child(publicacionId)
             .child("resenas")
-            .push() // Genera un nuevo ID para cada reseña
+            .push()
 
-        val res = Resena(texto)
+        val res = Resena(texto, rating)
+
         resenasRef.setValue(res)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Comentario enviado", Toast.LENGTH_SHORT).show()
-
-                // Recargar reseñas después de agregar una nueva
+                Toast.makeText(requireContext(), "Reseña agregada con éxito", Toast.LENGTH_SHORT).show()
                 cargarResenas(publicacionId)
             }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "Error al enviar comentario", Toast.LENGTH_SHORT).show()
-            }
-    }
+            .addOnFailureListener { e ->
+                Log.e("FirebaseDebug", "Error al agregar reseña: ${e.message}")
+            }
+    }
 }
-
-
-
