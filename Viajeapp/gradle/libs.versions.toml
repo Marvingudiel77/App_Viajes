@@ -14,6 +14,10 @@ firebaseDatabaseKtx = "21.0.0"
 firebaseAuthKtx = "23.0.0"
 circleImageV="3.1.0"
 glideV = "4.16.0"
+firebaseStorageV = "21.0.1"
+loginGoogleV = "21.2.0"
+firebaseStorageKtx = "21.0.1"
+recyclerview = "1.3.2"
 
 
 [libraries]
@@ -29,6 +33,10 @@ firebase-database-ktx = { group = "com.google.firebase", name = "firebase-databa
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 circleImage = {group ="de.hdodenhof", name = "circleimageview", version.ref="circleImageV" }
 glide= {group="com.github.bumptech.glide", name= "glide", version.ref="glideV"}
+firebaseStorage= {group="com.google.firebase", name="firebase-storage", version.ref = "firebaseStorageV"}
+loginGoogle = {group="com.google.android.gms", name="play-services-auth", version.ref="loginGoogleV"}
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 
 [plugins]

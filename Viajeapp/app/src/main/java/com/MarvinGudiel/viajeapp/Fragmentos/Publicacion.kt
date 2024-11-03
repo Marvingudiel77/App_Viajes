@@ -6,5 +6,10 @@ data class Publicacion(
     val es_gratuito: Boolean = false,
     val costo: Double = 0.0,
     val descripcion: String = "",
-    val imagen_url: String = ""
+    val imagen_url: String = "",
+    var key:String?= null,
+    var likes: Int = 0,
+    var dislikes: Int = 0,
+    var hasLiked: Boolean = false,
+    var hasDisliked: Boolean = false
 )

@@ -33,7 +33,6 @@ class RegistroEmailActivity : AppCompatActivity() {
             validarInformacion()
         }
 
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -45,12 +44,14 @@ class RegistroEmailActivity : AppCompatActivity() {
     private var email = ""
     private var password = ""
     private var r_password = ""
+    private var interesesViaje = ""
 
     private fun validarInformacion() {
         nombres = binding.etNombres.text.toString().trim()
-        email = binding.etEmail.text.toString().trim() // Corregido aquí
+        email = binding.etEmail.text.toString().trim()
         password = binding.etPassword.text.toString().trim()
         r_password = binding.etRPassword.text.toString().trim()
+        interesesViaje = binding.etInteresesViaje.text.toString().trim() // Capturar intereses
 
         when {
             nombres.isEmpty() -> {
@@ -76,6 +77,10 @@ class RegistroEmailActivity : AppCompatActivity() {
             password != r_password -> {
                 binding.etRPassword.error = "No coinciden las contraseñas"
                 binding.etRPassword.requestFocus()
+            }
+            interesesViaje.isEmpty() -> {
+                binding.etInteresesViaje.error = "Ingrese una descripción de sus intereses"
+                binding.etInteresesViaje.requestFocus()
             }
             else -> {
                 registrarUsuario()
@@ -116,6 +121,7 @@ class RegistroEmailActivity : AppCompatActivity() {
             put("proveedor", "Email")
             put("estado", "Online")
             put("imagen", "")
+            put("interesesViaje", "$interesesViaje") // Guardar intereses de viaje
         }
 
         val reference = FirebaseDatabase.getInstance().getReference("Usuarios")
